@@ -24,7 +24,11 @@ async function isPhoneNumberTaken(phonenumber) {
 
 async function getPin(username) {
     let result = await pgPool.query(sql.GET_PIN, [username]);
-    return result.rows[0].pin;
+    if (result.rows.length > 0) {
+        return result.rows[0].pin;
+    } else {
+        return null;
+    }
 }
 
 module.exports = { register, isUsernameTaken, isPhoneNumberTaken, getPin };
