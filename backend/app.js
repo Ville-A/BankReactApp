@@ -1,6 +1,8 @@
 require('dotenv').config();
 const register = require('./routes/register');
 const login = require('./routes/login');
+const sms = require('./routes/sms');
+const verify = require('./routes/verify');
 
 const cors = require('cors');
 const express = require('express');
@@ -22,5 +24,7 @@ app.get('/', (req, res) => {
 
 app.use('/', register);
 app.use('/', login);
+app.use('/', sms)
+app.use('/', verify)
 
 module.exports = app;

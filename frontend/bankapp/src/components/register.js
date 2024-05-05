@@ -46,25 +46,25 @@ export default function Register() {
     return (
         <div className={styles.registerBox}>
             <form>
-            <h1>Register</h1>
+            <h1>Rekisteröidy</h1>
             <div className={styles.inputBox}>
             <span className={styles.icon}><FontAwesomeIcon icon={faUser} /></span>
-                <input type="text" placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+                <input type="text" placeholder="Käyttäjänimi" onChange={(e) => setUsername(e.target.value)} />
             </div>
             <div className={styles.inputBox}>
                 <span className={styles.icon}><FontAwesomeIcon icon={faLock} /></span>
-                <input type="password" placeholder="PIN" onChange={(e) => setPin(e.target.value)} />
+                <input type="password" placeholder="PIN-koodi" onChange={(e) => setPin(e.target.value)} />
             </div>
             <div className={styles.inputBox}>
                 <span className={styles.icon}><FontAwesomeIcon icon={faLock} /></span>
-                <input type="password" placeholder="Confirm PIN" onChange={(e) => setConfirmPin(e.target.value)} />
+                <input type="password" placeholder="Vahvista PIN-koodi" onChange={(e) => setConfirmPin(e.target.value)} />
             </div>
             <div className={styles.inputBox}>
-                <span className={styles.icon}><FontAwesomeIcon icon={faPhone} /></span>
-                <input type="text" placeholder="Phonenumber" onChange={(e) => setPhoneNumber(e.target.value)} />
+                <span className={styles.icon}><FontAwesomeIcon icon={faPhone} color='black' /></span>
+                <input type="text" placeholder="Puhelinnumero (+358)" onChange={(e) => setPhoneNumber(e.target.value)} />
             </div>
             <div>
-                <button type="submit" onClick={handleRegister}>Register</button>
+                <button type="submit" onClick={handleRegister}>Rekisteröidy</button>
                 {error && <p className={styles.errorMessage}>{error}</p>}
             </div>
             </form>
