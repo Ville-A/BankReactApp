@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import styles from '../css/navbar.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faMoneyBillTransfer, faSignOutAlt, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 
 function Navbar({ isLoggedIn, onLogout }) {
   const location = useLocation();
@@ -22,11 +22,23 @@ function Navbar({ isLoggedIn, onLogout }) {
           </Link>
         </li>
         {isLoggedIn ? (
+          <>
+          <li>
+            <Link to="/profile" className={location.pathname === "/profile" ? styles.active : ""}>
+              <FontAwesomeIcon icon={faUserAlt} /> Profile
+            </Link>
+          </li>
+          <li>
+            <Link to="/transfer" className={location.pathname === "/transfer" ? styles.active : ""}>
+              <FontAwesomeIcon icon={faMoneyBillTransfer} color='black'/> Transfer
+            </Link>
+          </li>
           <li>
            <button className={styles.logoutButton} onClick={handleLogout}>
-              <FontAwesomeIcon icon={faSignOutAlt} />
+              <FontAwesomeIcon icon={faSignOutAlt} color='black' /> Logout
             </button>
           </li>
+          </>
         ) : (
           <>
             <li>

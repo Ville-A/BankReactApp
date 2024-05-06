@@ -5,7 +5,11 @@ import Home from './components/home';
 import Footer from './components/footer';
 import Login from './components/login';
 import Register from './components/register';
+import Profile from './components/profile';
+import Transfer from './components/transfer';
 import { useTokenValidation, handleLogout } from './utils/authUtils'; 
+
+
 function App() {
   const isLoggedIn = useTokenValidation();
 
@@ -17,6 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          {isLoggedIn && <Route path="/profile" element={<Profile />} />}
+          {isLoggedIn && <Route path="/transfer" element={<Transfer />} />}
         </Routes>
         <Footer />
       </div>
